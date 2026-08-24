@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float speed = 0.2;
+uniform float offset = 0.0;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -9,7 +9,7 @@ void vertex() {
 void fragment() {
 	// Called for every pixel the material is visible on.
 	vec2 uv = UV;
-	uv.x += TIME * speed;
+	uv.x += offset;
 	COLOR = texture(TEXTURE, uv);
 }
 
