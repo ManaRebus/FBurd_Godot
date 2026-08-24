@@ -26,7 +26,7 @@ func spawn_pipes() -> void:
 	var viewport_size := get_viewport_rect().size
 	var pipe_position := Vector2.ZERO
 	pipe_position.x = viewport_size.x + 50
-	pipe_position.y = randf_range(viewport_size.y + 35, viewport_size.y - 35)
+	pipe_position.y = randf_range(-viewport_size.y + 35, viewport_size.y - 35)
 	
 	var pipes = PIPE_PAIR.instantiate()
 	pipes.position = pipe_position
