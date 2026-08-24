@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqif037d3xsxe" path="res://FBird/f_bird.tscn" id="2_uawph"]
 [ext_resource type="Texture2D" uid="uid://bbj8inuv88rua" path="res://Assets/Ground.png" id="4_52x1o"]
 [ext_resource type="Shader" uid="uid://2bcpbfmamuju" path="res://Level/ground.gdshader" id="4_iincs"]
+[ext_resource type="PackedScene" uid="uid://8uqp0s82gwy6" path="res://Pipes/pipe_pare.tscn" id="7_d6qko"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
 shader = ExtResource("2_52x1o")
@@ -14,6 +15,12 @@ shader_parameter/offset = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("4_iincs")
 shader_parameter/offset = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_g4v7s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1204, 17.454544, 0, 0, 0, 0, 1204, 576)
+}
+point_count = 2
 
 [node name="Level" type="Node2D" unique_id=562633610]
 script = ExtResource("1_nk1il")
@@ -34,6 +41,9 @@ texture = ExtResource("2_qmtf6")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="PipePare" parent="." unique_id=734954088 instance=ExtResource("7_d6qko")]
+position = Vector2(856, 240)
+
 [node name="Ground" type="TextureRect" parent="." unique_id=1101029052]
 unique_name_in_owner = true
 texture_repeat = 2
@@ -43,3 +53,14 @@ offset_right = 1152.0
 offset_bottom = 688.0
 texture = ExtResource("4_52x1o")
 expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=706419118]
+unique_name_in_owner = true
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=395094075]
+unique_name_in_owner = true
+position = Vector2(-3600, 48)
+scale = Vector2(3.999977, 0.9166666)
+curve = SubResource("Curve2D_g4v7s")
