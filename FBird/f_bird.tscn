@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bqif037d3xsxe"]
+
+[ext_resource type="Texture2D" uid="uid://xs70a7tfe7hk" path="res://Assets/Flappy bird.png" id="1_m0fvc"]
+[ext_resource type="Script" uid="uid://c8hifgvt4a8il" path="res://FBird/f_bird.gd" id="1_pyf1f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 8.0
+
+[node name="FBird" type="CharacterBody2D" unique_id=306336344]
+script = ExtResource("1_pyf1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833811433]
+scale = Vector2(1.8125, 1.8125)
+texture = ExtResource("1_m0fvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564040020]
+shape = SubResource("CircleShape2D_g4v7s")

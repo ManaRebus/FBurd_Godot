@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bj7ydocgw20b8"]
+
+[ext_resource type="Shader" uid="uid://c7uhp1415wki3" path="res://Level/level.gdshader" id="2_52x1o"]
+[ext_resource type="Texture2D" uid="uid://dhvd27ke6x8ff" path="res://Assets/Background.png" id="2_qmtf6"]
+[ext_resource type="PackedScene" uid="uid://bqif037d3xsxe" path="res://FBird/f_bird.tscn" id="2_uawph"]
+[ext_resource type="Texture2D" uid="uid://bbj8inuv88rua" path="res://Assets/Ground.png" id="4_52x1o"]
+[ext_resource type="Shader" uid="uid://2bcpbfmamuju" path="res://Level/ground.gdshader" id="4_iincs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
+shader = ExtResource("2_52x1o")
+shader_parameter/speed = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("4_iincs")
+shader_parameter/speed = 0.5
+
+[node name="Level" type="Node2D" unique_id=562633610]
+
+[node name="FBird" parent="." unique_id=1257340324 instance=ExtResource("2_uawph")]
+z_index = 1
+position = Vector2(88, 368)
+
+[node name="Background" type="TextureRect" parent="." unique_id=277957050]
+unique_name_in_owner = true
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_qmtf6")
+offset_right = 1152.0
+offset_bottom = 648.0
+offset_transform_enabled = true
+texture = ExtResource("2_qmtf6")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="TextureRect" parent="." unique_id=1101029052]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_g4v7s")
+offset_top = 472.0
+offset_right = 1152.0
+offset_bottom = 688.0
+texture = ExtResource("4_52x1o")
+expand_mode = 1
