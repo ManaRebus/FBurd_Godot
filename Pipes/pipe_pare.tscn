@@ -13,40 +13,42 @@ size = Vector2(61.5, 425.5)
 script = ExtResource("1_758vv")
 
 [node name="LowerPipe" type="Area2D" parent="." unique_id=323069925]
-position = Vector2(0, 144)
+unique_name_in_owner = true
+position = Vector2(0, 37)
 
 [node name="Sprite2D" type="Sprite2D" parent="LowerPipe" unique_id=2130800948]
-position = Vector2(0, 152)
+position = Vector2(1, 267)
 scale = Vector2(3.25, 4.4)
 texture = ExtResource("1_rnw38")
 
 [node name="CollisionShapeSpike" type="CollisionShape2D" parent="LowerPipe" unique_id=1827931308]
-position = Vector2(-9.536743e-07, 33)
+position = Vector2(1, 143)
 scale = Vector2(3.25, 2.5)
 shape = SubResource("ConvexPolygonShape2D_d0u6y")
 debug_color = Color(0.9372549, 0.22352941, 0.30588236, 0.41960785)
 
 [node name="CollisionShape2DTube" type="CollisionShape2D" parent="LowerPipe" unique_id=1339996570]
-position = Vector2(1.75, 222.5)
+position = Vector2(4, 337)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.9372549, 0.22352941, 0.30588236, 0.41960785)
 
-[node name="UpperPipe2" type="Area2D" parent="." unique_id=188520413]
+[node name="UpperPipe" type="Area2D" parent="." unique_id=188520413]
+unique_name_in_owner = true
 position = Vector2(0, -32)
 rotation = 3.1415927
 
-[node name="Sprite2D" type="Sprite2D" parent="UpperPipe2" unique_id=406374532]
+[node name="Sprite2D" type="Sprite2D" parent="UpperPipe" unique_id=406374532]
 position = Vector2(0, 273.343)
 scale = Vector2(3.253, 4.4)
 texture = ExtResource("1_rnw38")
 
-[node name="CollisionShapeSpike" type="CollisionShape2D" parent="UpperPipe2" unique_id=685053558]
+[node name="CollisionShapeSpike" type="CollisionShape2D" parent="UpperPipe" unique_id=685053558]
 position = Vector2(0, 152)
 scale = Vector2(3.25, 2.5)
 shape = SubResource("ConvexPolygonShape2D_d0u6y")
 debug_color = Color(0.9372549, 0.22352941, 0.30588236, 0.41960785)
 
-[node name="CollisionShape2DTube" type="CollisionShape2D" parent="UpperPipe2" unique_id=953608776]
+[node name="CollisionShape2DTube" type="CollisionShape2D" parent="UpperPipe" unique_id=953608776]
 position = Vector2(1.0000305, 345.75)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.9372549, 0.22352941, 0.30588236, 0.41960785)

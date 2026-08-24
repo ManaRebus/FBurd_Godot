@@ -18,7 +18,7 @@ shader_parameter/offset = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_g4v7s"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1204, 17.454544, 0, 0, 0, 0, 1204, 576)
+"points": PackedVector2Array(0, 0, 0, 0, 1204.0068, 157.09091, 0, 0, 0, 0, 1204.0068, 436.36365)
 }
 point_count = 2
 
@@ -42,7 +42,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="PipePare" parent="." unique_id=734954088 instance=ExtResource("7_d6qko")]
-position = Vector2(856, 240)
+position = Vector2(768, 320)
 
 [node name="Ground" type="TextureRect" parent="." unique_id=1101029052]
 unique_name_in_owner = true
@@ -64,3 +64,9 @@ unique_name_in_owner = true
 position = Vector2(-3600, 48)
 scale = Vector2(3.999977, 0.9166666)
 curve = SubResource("Curve2D_g4v7s")
+
+[node name="PipeYSpawn" type="PathFollow2D" parent="Path2D" unique_id=1589580305]
+unique_name_in_owner = true
+position = Vector2(1204.0068, 299.185)
+rotation = 1.5707964
+progress = 142.09398
