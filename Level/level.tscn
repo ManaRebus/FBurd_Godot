@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqif037d3xsxe" path="res://FBird/f_bird.tscn" id="2_uawph"]
 [ext_resource type="Texture2D" uid="uid://bbj8inuv88rua" path="res://Assets/Ground.png" id="4_52x1o"]
 [ext_resource type="Shader" uid="uid://2bcpbfmamuju" path="res://Level/ground.gdshader" id="4_iincs"]
-[ext_resource type="PackedScene" uid="uid://8uqp0s82gwy6" path="res://Pipes/pipe_pare.tscn" id="7_d6qko"]
+[ext_resource type="FontFile" uid="uid://d3xgb6wrc5ip7" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="8_22cqp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
 shader = ExtResource("2_52x1o")
@@ -22,12 +22,19 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Theme" id="Theme_g4v7s"]
+default_font = ExtResource("8_22cqp")
+Label/colors/font_color = Color(0.8936401, 3.85046e-07, 0.4438717, 1)
+Label/font_sizes/font_size = 36
+
 [node name="Level" type="Node2D" unique_id=562633610]
 script = ExtResource("1_nk1il")
+spawn_interval = 1.0
 
 [node name="FBird" parent="." unique_id=1257340324 instance=ExtResource("2_uawph")]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(88, 368)
+position = Vector2(128, 384)
 
 [node name="Background" type="TextureRect" parent="." unique_id=277957050]
 unique_name_in_owner = true
@@ -41,9 +48,6 @@ texture = ExtResource("2_qmtf6")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="PipePare" parent="." unique_id=734954088 instance=ExtResource("7_d6qko")]
-position = Vector2(768, 320)
-
 [node name="Ground" type="TextureRect" parent="." unique_id=1101029052]
 unique_name_in_owner = true
 texture_repeat = 2
@@ -55,12 +59,7 @@ texture = ExtResource("4_52x1o")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="PipeTimer" type="Timer" parent="." unique_id=706419118]
-unique_name_in_owner = true
-autostart = true
-
 [node name="Path2D" type="Path2D" parent="." unique_id=395094075]
-unique_name_in_owner = true
 position = Vector2(-3600, 48)
 scale = Vector2(3.999977, 0.9166666)
 curve = SubResource("Curve2D_g4v7s")
@@ -70,3 +69,15 @@ unique_name_in_owner = true
 position = Vector2(1204.0068, 299.185)
 rotation = 1.5707964
 progress = 142.09398
+
+[node name="Score" type="Label" parent="." unique_id=948611857]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 285.0
+offset_bottom = 168.0
+size_flags_horizontal = 4
+theme = SubResource("Theme_g4v7s")
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
