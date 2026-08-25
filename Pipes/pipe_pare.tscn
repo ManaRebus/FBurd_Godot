@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://divrkbwgcj457" path="res://Assets/Pipe.png" id="1_rnw38"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_d0u6y"]
-points = PackedVector2Array(-12.615381, -7.5999985, 13.846158, -7.5999985, -0.30769196, -55.6)
+points = PackedVector2Array(-12.615381, -7.5999985, 13.846158, -7.5999985, -0.3076922, -58.8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(61.5, 425.5)

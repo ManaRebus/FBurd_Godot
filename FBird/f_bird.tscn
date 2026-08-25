@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c8hifgvt4a8il" path="res://FBird/f_bird.gd" id="1_pyf1f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 8.0
+radius = 13.341664
 
 [node name="FBird" type="CharacterBody2D" unique_id=306336344]
 script = ExtResource("1_pyf1f")

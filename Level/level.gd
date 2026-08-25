@@ -7,6 +7,7 @@ const PIPE_PAIR := preload("res://Pipes/pipe_pare.tscn")
 @onready var ground: TextureRect = %Ground
 @onready var pipe_y_spawn: PathFollow2D = %PipeYSpawn
 @onready var score_label: Label = %Score
+@onready var dead_zone: Area2D = %DeadZone
 
 var score := 0
 var pipe_array: Array = []
@@ -32,8 +33,11 @@ func _ready() -> void:
 	add_child(pipe_timer)
 	pipe_timer.start(spawn_interval)
 	pipe_timer.timeout.connect(spawn_pipes)
-	pipe_timer.timeout.connect(func() -> void:
-		print(str(pipe_array)))
+	
+	dead_zone.body_entered.connect(func (body: Node2D) -> void:
+		if body is Bird:
+			game_over()
+			)
 	
 
 # handels background a ground movement through shaders
@@ -50,8 +54,9 @@ func _physics_process(_delta: float) -> void:
 			pipe.scored = true
 			score_label.text = "Score: " + str(score)
 
-# spawning pipe-pairs along x and y:
-# x: outside of a screen; y: random position on a path2D
+# spawning pipe-pairs along x and y: x: outside of a screen; y: random position on a path2D
+# adds pipe to the array and connects delete signal
+# connects bird-pipe collision signal
 func spawn_pipes() -> void:
 	var viewport_size := get_viewport_rect().size
 	var pipe_position := Vector2.ZERO
@@ -66,13 +71,14 @@ func spawn_pipes() -> void:
 	pipe_array.append(pipes)
 	
 	pipes.pipe_deleted.connect(_on_pipe_deleted.bind(pipes))
+	pipes.bird_collision.connect(game_over)
 
+# erase pipe from array when signal on pipe free is emmited
 func _on_pipe_deleted(pipes) -> void:
 	pipe_array.erase(pipes)
 
-func scoring(score: int) -> void:
-	pass
 
 func game_over() -> void:
 	set_physics_process(false)
-	get_tree().reload_current_scene()
+	get_tree().paused = true
+	#get_tree().reload_current_scene()

@@ -27,9 +27,10 @@ default_font = ExtResource("8_22cqp")
 Label/colors/font_color = Color(0.8936401, 3.85046e-07, 0.4438717, 1)
 Label/font_sizes/font_size = 36
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+
 [node name="Level" type="Node2D" unique_id=562633610]
 script = ExtResource("1_nk1il")
-spawn_interval = 1.0
 
 [node name="FBird" parent="." unique_id=1257340324 instance=ExtResource("2_uawph")]
 unique_name_in_owner = true
@@ -81,3 +82,10 @@ theme = SubResource("Theme_g4v7s")
 text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DeadZone" type="Area2D" parent="." unique_id=595012613]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone" unique_id=1662398121]
+position = Vector2(416, 632)
+shape = SubResource("WorldBoundaryShape2D_g4v7s")

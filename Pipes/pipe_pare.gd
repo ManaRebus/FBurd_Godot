@@ -8,9 +8,17 @@ var scored := false
 @onready var upper_pipe: Area2D = %UpperPipe
 
 signal pipe_deleted
+signal bird_collision
+
 func _ready() -> void:
 	lower_pipe.position.y = gap_between_pipes / 2
 	upper_pipe.position.y = - gap_between_pipes / 2
+	lower_pipe.body_entered.connect(func(body: Node2D) -> void:
+		if body is Bird:
+			bird_collision.emit())
+	upper_pipe.body_entered.connect(func(body: Node2D) -> void:
+		if body is Bird:
+			bird_collision.emit())
 
 func _physics_process(delta: float) -> void:
 	position.x -= pipe_speed * delta
