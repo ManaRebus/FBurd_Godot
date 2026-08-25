@@ -4,6 +4,7 @@ class_name Bird extends CharacterBody2D
 @export var max_fall_speed := 2000.0
 @export var jump_velocity := -300.0
 
+@onready var sprite_2d: Sprite2D = %Sprite2D
 
 func _physics_process(delta: float) -> void:
 	velocity.y += fall_gravity * delta

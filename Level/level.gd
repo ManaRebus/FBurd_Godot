@@ -1,6 +1,7 @@
 extends Node2D
 
 const PIPE_PAIR := preload("res://Pipes/pipe_pare.tscn")
+const HURT_BIRD := preload("res://Assets/Flappy bird.png")
 
 @onready var bird: Bird = %FBird
 @onready var background: TextureRect = %Background
@@ -81,4 +82,5 @@ func _on_pipe_deleted(pipes) -> void:
 func game_over() -> void:
 	set_physics_process(false)
 	get_tree().paused = true
+	bird.sprite_2d.texture = HURT_BIRD
 	#get_tree().reload_current_scene()
