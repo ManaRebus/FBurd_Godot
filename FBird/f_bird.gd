@@ -5,6 +5,7 @@ class_name Bird extends CharacterBody2D
 @export var jump_velocity := -300.0
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var jump: AudioStreamPlayer2D = %Jump
 
 func _physics_process(delta: float) -> void:
 	velocity.y += fall_gravity * delta
@@ -13,3 +14,4 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_velocity
+		jump.play()

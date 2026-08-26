@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://daryvhex4nv8g"]
+
+[ext_resource type="AudioStream" uid="uid://s70kq6ye4scv" path="res://SDF/time_for_adventure.mp3" id="1_bjtv1"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=540168288]
+stream = ExtResource("1_bjtv1")

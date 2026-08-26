@@ -11,6 +11,8 @@ const HURT_BIRD := preload("res://Assets/Flappy bird.png")
 @onready var dead_zone: Area2D = %DeadZone
 @onready var start_screen: Control = %StartScreen
 @onready var end_screen: Control = %EndScreen
+@onready var hurt_sound: AudioStreamPlayer2D = %HurtSound
+@onready var score_sound: AudioStreamPlayer2D = %ScoreSound
 
 var score := 0
 var pipe_array: Array = []
@@ -43,7 +45,7 @@ func _ready() -> void:
 	pipe_timer.timeout.connect(spawn_pipes)
 	
 	dead_zone.body_entered.connect(func (body: Node2D) -> void:
-		if body is Bird:
+		if body is Bird:			
 			game_over()
 			)
 	
@@ -59,6 +61,7 @@ func _physics_process(_delta: float) -> void:
 	for pipe in pipe_array:
 		if pipe.position.x < bird.position.x and pipe.scored == false:
 			score += 1
+			score_sound.play()
 			pipe.scored = true
 			score_label.text = "Score: " + str(score)
 
@@ -96,9 +99,14 @@ func start_game() -> void:
 
 func game_over() -> void:
 	bird.sprite_2d.texture = HURT_BIRD
+	hurt_sound.play()
 	score_label.visible = false
 	end_screen.score_num = score
 	end_screen.visible = true
-	get_tree().paused = true
+	bird.fall_gravity = 0
+	bird.velocity = Vector2.ZERO
+	hurt_sound.finished.connect(func() -> void:
+		get_tree().paused = true)
+	
 
 	#get_tree().reload_current_scene()

@@ -9,6 +9,9 @@
 [ext_resource type="Theme" uid="uid://g8o8tpmankyu" path="res://Theme/main_theme.tres" id="7_d6qko"]
 [ext_resource type="PackedScene" uid="uid://f5dt3g6huq4s" path="res://Level/start_screen.tscn" id="8_22cqp"]
 [ext_resource type="PackedScene" uid="uid://byv1kuwl22cb1" path="res://Level/end_screen.tscn" id="9_wqlfs"]
+[ext_resource type="PackedScene" uid="uid://daryvhex4nv8g" path="res://Level/music.tscn" id="10_py82k"]
+[ext_resource type="AudioStream" uid="uid://c53dti1cbc80x" path="res://SDF/Boom3.wav" id="11_1teg4"]
+[ext_resource type="AudioStream" uid="uid://x6de3ch3gex3" path="res://SDF/Pickup2.wav" id="12_i5g78"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
 shader = ExtResource("2_52x1o")
@@ -101,3 +104,14 @@ unique_name_in_owner = true
 [node name="EndScreen" parent="CanvasLayer" unique_id=1212949674 instance=ExtResource("9_wqlfs")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Music" parent="." unique_id=540168288 instance=ExtResource("10_py82k")]
+autoplay = true
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=842151911]
+unique_name_in_owner = true
+stream = ExtResource("11_1teg4")
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="." unique_id=563896131]
+unique_name_in_owner = true
+stream = ExtResource("12_i5g78")

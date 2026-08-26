@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8hifgvt4a8il" path="res://FBird/f_bird.gd" id="1_pyf1f"]
 [ext_resource type="Texture2D" uid="uid://cvbrsat4oyvmu" path="res://Assets/Flappy bird normal.png" id="2_pyf1f"]
+[ext_resource type="AudioStream" uid="uid://1sdkbtj4fbtb" path="res://SDF/Jump1.wav" id="3_iw5mw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 13.341664
@@ -16,3 +17,7 @@ texture = ExtResource("2_pyf1f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564040020]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=604169485]
+unique_name_in_owner = true
+stream = ExtResource("3_iw5mw")
