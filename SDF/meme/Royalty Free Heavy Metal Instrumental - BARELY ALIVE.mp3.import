@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c41t0c46ew4b3"
+path="res://.godot/imported/Royalty Free Heavy Metal Instrumental - BARELY ALIVE.mp3-a2971a73ca66e6a0196744388967a6fc.mp3str"
+
+[deps]
+
+source_file="res://SDF/meme/Royalty Free Heavy Metal Instrumental - BARELY ALIVE.mp3"
+dest_files=["res://.godot/imported/Royalty Free Heavy Metal Instrumental - BARELY ALIVE.mp3-a2971a73ca66e6a0196744388967a6fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

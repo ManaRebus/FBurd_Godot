@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://f5dt3g6huq4s" path="res://Level/start_screen.tscn" id="8_22cqp"]
 [ext_resource type="PackedScene" uid="uid://byv1kuwl22cb1" path="res://Level/end_screen.tscn" id="9_wqlfs"]
 [ext_resource type="PackedScene" uid="uid://daryvhex4nv8g" path="res://Level/music.tscn" id="10_py82k"]
-[ext_resource type="AudioStream" uid="uid://c53dti1cbc80x" path="res://SDF/Boom3.wav" id="11_1teg4"]
-[ext_resource type="AudioStream" uid="uid://x6de3ch3gex3" path="res://SDF/Pickup2.wav" id="12_i5g78"]
+[ext_resource type="AudioStream" uid="uid://c41t0c46ew4b3" path="res://SDF/meme/Royalty Free Heavy Metal Instrumental - BARELY ALIVE.mp3" id="11_q47le"]
+[ext_resource type="AudioStream" uid="uid://c1hsewh6bbbjc" path="res://SDF/meme/sally mem 2.mp3" id="12_dx36h"]
+[ext_resource type="AudioStream" uid="uid://dg28kuqi3a0qv" path="res://SDF/meme/anime-wow-sound-effect.mp3" id="13_q47le"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
 shader = ExtResource("2_52x1o")
@@ -106,12 +107,13 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Music" parent="." unique_id=540168288 instance=ExtResource("10_py82k")]
+stream = ExtResource("11_q47le")
 autoplay = true
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=842151911]
 unique_name_in_owner = true
-stream = ExtResource("11_1teg4")
+stream = ExtResource("12_dx36h")
 
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="." unique_id=563896131]
 unique_name_in_owner = true
-stream = ExtResource("12_i5g78")
+stream = ExtResource("13_q47le")
