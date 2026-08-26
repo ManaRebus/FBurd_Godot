@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bqif037d3xsxe" path="res://FBird/f_bird.tscn" id="2_uawph"]
 [ext_resource type="Texture2D" uid="uid://bbj8inuv88rua" path="res://Assets/Ground.png" id="4_52x1o"]
 [ext_resource type="Shader" uid="uid://2bcpbfmamuju" path="res://Level/ground.gdshader" id="4_iincs"]
-[ext_resource type="FontFile" uid="uid://d3xgb6wrc5ip7" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="8_22cqp"]
+[ext_resource type="Theme" uid="uid://g8o8tpmankyu" path="res://Theme/main_theme.tres" id="7_d6qko"]
+[ext_resource type="PackedScene" uid="uid://f5dt3g6huq4s" path="res://Level/start_screen.tscn" id="8_22cqp"]
+[ext_resource type="PackedScene" uid="uid://byv1kuwl22cb1" path="res://Level/end_screen.tscn" id="9_wqlfs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmtf6"]
 shader = ExtResource("2_52x1o")
@@ -23,11 +25,6 @@ _data = {
 point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
-
-[sub_resource type="Theme" id="Theme_g4v7s"]
-default_font = ExtResource("8_22cqp")
-Label/colors/font_color = Color(0.8936401, 3.85046e-07, 0.4438717, 1)
-Label/font_sizes/font_size = 36
 
 [node name="Level" type="Node2D" unique_id=562633610]
 script = ExtResource("1_nk1il")
@@ -80,6 +77,7 @@ shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
 [node name="Score" type="Label" parent="." unique_id=948611857]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -89,7 +87,17 @@ offset_right = 1125.0
 offset_bottom = 112.0
 grow_vertical = 0
 size_flags_horizontal = 4
-theme = SubResource("Theme_g4v7s")
+theme = ExtResource("7_d6qko")
 text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=198040039]
+process_mode = 3
+
+[node name="StartScreen" parent="CanvasLayer" unique_id=324329586 instance=ExtResource("8_22cqp")]
+unique_name_in_owner = true
+
+[node name="EndScreen" parent="CanvasLayer" unique_id=1212949674 instance=ExtResource("9_wqlfs")]
+unique_name_in_owner = true
+visible = false

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://f5dt3g6huq4s"]
+
+[ext_resource type="Script" uid="uid://csj72efbdsokx" path="res://Level/start_screen.gd" id="1_e3nmb"]
+[ext_resource type="Theme" uid="uid://g8o8tpmankyu" path="res://Theme/main_theme.tres" id="1_reqk7"]
+
+[node name="StartScreen" type="Control" unique_id=324329586]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e3nmb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=672471365]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.40392157)
+
+[node name="Label" type="Label" parent="." unique_id=75667125]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -98.5
+offset_right = 198.0
+offset_bottom = 98.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_reqk7")
+text = "Press Space 
+
+to 
+
+Start"
+horizontal_alignment = 1
+vertical_alignment = 1

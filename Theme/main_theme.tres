@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://g8o8tpmankyu"]
+
+[ext_resource type="FontFile" uid="uid://d3xgb6wrc5ip7" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="1_qrgx4"]
+
+[resource]
+default_font = ExtResource("1_qrgx4")
+Label/colors/font_color = Color(0.8936401, 3.85046e-07, 0.4438717, 1)
+Label/font_sizes/font_size = 36

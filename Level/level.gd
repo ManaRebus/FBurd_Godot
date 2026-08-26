@@ -9,6 +9,8 @@ const HURT_BIRD := preload("res://Assets/Flappy bird.png")
 @onready var pipe_y_spawn: PathFollow2D = %PipeYSpawn
 @onready var score_label: Label = %Score
 @onready var dead_zone: Area2D = %DeadZone
+@onready var start_screen: Control = %StartScreen
+@onready var end_screen: Control = %EndScreen
 
 var score := 0
 var pipe_array: Array = []
@@ -31,8 +33,13 @@ func create_timer() -> Timer:
 
 
 func _ready() -> void:
+	get_tree().paused = true
+	score_label.visible = false
+	start_screen.start_the_game.connect(start_game)
+	end_screen.restart_game.connect(func() -> void:
+		get_tree().reload_current_scene()
+		)
 	add_child(pipe_timer)
-	pipe_timer.start(spawn_interval)
 	pipe_timer.timeout.connect(spawn_pipes)
 	
 	dead_zone.body_entered.connect(func (body: Node2D) -> void:
@@ -74,13 +81,24 @@ func spawn_pipes() -> void:
 	pipes.pipe_deleted.connect(_on_pipe_deleted.bind(pipes))
 	pipes.bird_collision.connect(game_over)
 
+
 # erase pipe from array when signal on pipe free is emmited
 func _on_pipe_deleted(pipes) -> void:
 	pipe_array.erase(pipes)
 
 
+func start_game() -> void:
+	get_tree().paused = false
+	start_screen.visible = false
+	score_label.visible = true
+	pipe_timer.start(spawn_interval)
+	bird.velocity.y = bird.jump_velocity
+
 func game_over() -> void:
-	set_physics_process(false)
-	get_tree().paused = true
 	bird.sprite_2d.texture = HURT_BIRD
+	score_label.visible = false
+	end_screen.score_num = score
+	end_screen.visible = true
+	get_tree().paused = true
+
 	#get_tree().reload_current_scene()
