@@ -10,6 +10,7 @@ points = PackedVector2Array(-12.615381, -7.5999985, 13.846158, -7.5999985, -0.30
 size = Vector2(61.5, 425.5)
 
 [node name="PipePare" type="Node2D" unique_id=734954088]
+z_index = 2
 script = ExtResource("1_758vv")
 
 [node name="LowerPipe" type="Area2D" parent="." unique_id=323069925]

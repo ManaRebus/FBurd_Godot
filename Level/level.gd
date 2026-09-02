@@ -21,7 +21,7 @@ var pipe_timer = create_timer()
 
 @export_group("Background movement")
 @export var background_speed := 0.05
-@export var ground_speed := 0.2
+@export var ground_speed := 0.12
 var background_offset := 0.0
 var ground_offset := 0.0
 
@@ -79,6 +79,7 @@ func spawn_pipes() -> void:
 	pipes.position = pipe_position
 
 	add_child(pipes)
+	pipes.z_index = 1
 	pipe_array.append(pipes)
 	
 	pipes.pipe_deleted.connect(_on_pipe_deleted.bind(pipes))
@@ -105,8 +106,7 @@ func game_over() -> void:
 	end_screen.visible = true
 	bird.fall_gravity = 0
 	bird.velocity = Vector2.ZERO
-	hurt_sound.finished.connect(func() -> void:
-		get_tree().paused = true)
+	get_tree().paused = true
 	
 
 	#get_tree().reload_current_scene()

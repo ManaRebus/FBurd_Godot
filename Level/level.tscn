@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://f5dt3g6huq4s" path="res://Level/start_screen.tscn" id="8_22cqp"]
 [ext_resource type="PackedScene" uid="uid://byv1kuwl22cb1" path="res://Level/end_screen.tscn" id="9_wqlfs"]
 [ext_resource type="PackedScene" uid="uid://daryvhex4nv8g" path="res://Level/music.tscn" id="10_py82k"]
-[ext_resource type="AudioStream" uid="uid://c41t0c46ew4b3" path="res://SDF/meme/Royalty Free Heavy Metal Instrumental - BARELY ALIVE.mp3" id="11_q47le"]
 [ext_resource type="AudioStream" uid="uid://c1hsewh6bbbjc" path="res://SDF/meme/sally mem 2.mp3" id="12_dx36h"]
 [ext_resource type="AudioStream" uid="uid://dg28kuqi3a0qv" path="res://SDF/meme/anime-wow-sound-effect.mp3" id="13_q47le"]
 
@@ -35,7 +34,7 @@ script = ExtResource("1_nk1il")
 
 [node name="FBird" parent="." unique_id=1257340324 instance=ExtResource("2_uawph")]
 unique_name_in_owner = true
-z_index = 1
+z_index = 3
 position = Vector2(128, 384)
 
 [node name="Background" type="TextureRect" parent="." unique_id=277957050]
@@ -52,6 +51,7 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="TextureRect" parent="." unique_id=1101029052]
 unique_name_in_owner = true
+z_index = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_g4v7s")
 offset_top = 472.0
@@ -81,7 +81,7 @@ shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
 [node name="Score" type="Label" parent="." unique_id=948611857]
 unique_name_in_owner = true
-z_index = 1
+z_index = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -106,14 +106,17 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 visible = false
 
-[node name="Music" parent="." unique_id=540168288 instance=ExtResource("10_py82k")]
-stream = ExtResource("11_q47le")
-autoplay = true
+[node name="SFX" type="Node" parent="." unique_id=80849165]
+process_mode = 3
 
-[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=842151911]
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=563896131]
+unique_name_in_owner = true
+stream = ExtResource("13_q47le")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=842151911]
 unique_name_in_owner = true
 stream = ExtResource("12_dx36h")
 
-[node name="ScoreSound" type="AudioStreamPlayer2D" parent="." unique_id=563896131]
-unique_name_in_owner = true
-stream = ExtResource("13_q47le")
+[node name="Music" parent="SFX" unique_id=540168288 instance=ExtResource("10_py82k")]
+autoplay = true
+bus = &"Music"
